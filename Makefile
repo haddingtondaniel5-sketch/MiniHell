@@ -9,7 +9,7 @@ CFLAGS := -I/opt/homebrew/Cellar/raylib/5.5/include
 LDFLAGS := -L/opt/homebrew/Cellar/raylib/5.5/lib  -lraylib -framework OpenGL -framework Cocoa -framework IOKit -framework CoreVideo
 
 FLAGS := -Wextra -Wall -Werror
-ADDSAN := -fsanitize=address
+ADDSAN := -fsanitize=address -g
 
 # Directories
 SRC_DIR := source/

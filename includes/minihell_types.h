@@ -26,7 +26,10 @@ typedef struct s_player {
 	u32 y;
 	u32 move_cooldown;
 	Direction direction;
-	Texture2D texture_player;
+	Texture2D texture_player_up;
+	Texture2D texture_player_down;
+	Texture2D texture_player_right;
+	Texture2D texture_player_left;
 } t_player;
 
 typedef struct s_map {

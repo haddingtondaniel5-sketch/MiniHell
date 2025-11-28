@@ -4,7 +4,14 @@
 
 void draw_player(t_player *player)
 {
-	DrawTexture(player->texture_player, player->x * TILE_SIZE, player->y * TILE_SIZE, RAYWHITE);
+	if (player->direction == DIR_UP)
+		DrawTexture(player->texture_player_up, player->x * TILE_SIZE, player->y * TILE_SIZE, WHITE);
+	if (player->direction == DIR_DOWN)
+		DrawTexture(player->texture_player_down, player->x * TILE_SIZE, player->y * TILE_SIZE, WHITE);	
+	if (player->direction == DIR_RIGHT)
+		DrawTexture(player->texture_player_right, player->x * TILE_SIZE, player->y * TILE_SIZE, WHITE);	
+	if (player->direction == DIR_LEFT)
+		DrawTexture(player->texture_player_left, player->x * TILE_SIZE, player->y * TILE_SIZE, WHITE);
 }
 
 void draw_map(t_map *map)
