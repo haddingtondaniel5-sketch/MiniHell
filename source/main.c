@@ -19,11 +19,15 @@ int main(void)
 		update_player(&app->player, &app->input, app->map);
 		update_camera(&app->camera, &app->player);
 		
+		
 
 		BeginMode2D(app->camera);
 		draw_map(&app->map[app->current_map]);
 		draw_player(&app->player);
 		draw_player_attack(&app->player, &app->map[app->current_map]);
+
+		update_map(&app->player, &app->map[app->current_map]);
+		
 		EndMode2D();
         EndDrawing();
     }

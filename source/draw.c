@@ -30,9 +30,16 @@ void draw_player_attack(t_player *player, t_map *map)
 			if (player->direction == DIR_LEFT)
 				DrawTexture(player->texture_player_attack, (player->x - i) * TILE_SIZE, (player->y) * TILE_SIZE, WHITE);
 			if (check_collision(map, player, player->direction, i))
+			{
 				i += 1;
+				player->attack_point = 0;
+			}
 			else
+			{
+				player->attack_point = i;
 				break ;
+			}
+				
 		}
 
 	}

@@ -6,6 +6,7 @@ void init_player(t_player *player)
 	player->y = FIRSTMAP_Y;
 	player->move_cooldown = 0;
 	player->direction = DIR_DOWN;
+	player->attack_point = 0;
 	player->texture_player_up = LoadTexture("0image/Fire Person_Up.png");
 	player->texture_player_down = LoadTexture("0image/Fire Person_Down.png");
 	player->texture_player_right = LoadTexture("0image/Fire Person_Right.png");

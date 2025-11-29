@@ -26,6 +26,7 @@ void convert_render_to_collision(t_map *map);
 void update_input(t_input *input);
 void update_player(t_player *player, t_input *input, t_map *map);
 void update_camera(Camera2D *camera, t_player *player);
+void update_map(t_player *player, t_map *map);
 
 
 // utils.c

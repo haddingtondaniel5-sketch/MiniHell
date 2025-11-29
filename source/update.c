@@ -49,3 +49,30 @@ void update_camera(Camera2D *camera, t_player *player)
 {
 	camera->target = (Vector2){player->x * TILE_SIZE, player->y * TILE_SIZE};
 }
+
+void update_map(t_player *player, t_map *map)
+{
+
+	switch (player->direction)
+	{
+		case DIR_DOWN:
+		if (map->render_grid[player->y + 1 + player->attack_point][player->x] != '#')
+			map->render_grid[player->y + 1 + player->attack_point][player->x] = '.';
+			break;
+		case DIR_LEFT:
+		if (map->render_grid[player->y][player->x - 1 - player->attack_point] != '#')
+			map->render_grid[player->y][player->x - 1 - player->attack_point] = '.';
+			break;
+		case DIR_RIGHT:
+		if (map->render_grid[player->y][player->x + 1 + player->attack_point] != '#')
+			map->render_grid[player->y][player->x + 1 + player->attack_point] = '.';
+			break;
+		case DIR_UP:
+		if (map->render_grid[player->y - 1 - player->attack_point][player->x] != '#')
+			map->render_grid[player->y - 1 - player->attack_point][player->x] = '.';
+			break;
+	}
+	convert_render_to_collision(map);
+	player->attack_point = 0;
+	
+}
