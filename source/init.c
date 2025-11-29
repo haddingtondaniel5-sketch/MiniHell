@@ -10,7 +10,7 @@ void init_player(t_player *player)
 	player->texture_player_down = LoadTexture("0image/Fire Person_Down.png");
 	player->texture_player_right = LoadTexture("0image/Fire Person_Right.png");
 	player->texture_player_left = LoadTexture("0image/Fire Person_Left.png");
-
+	player->texture_player_attack = LoadTexture("0image/Fireball.png");
 }
 
 void init_input(t_input *input)

@@ -27,19 +27,19 @@ void update_player(t_player *player, t_input *input, t_map *map)
 		player->direction = DIR_LEFT;
 
 
-	if (input->up && check_collision(map, player, DIR_UP)) { 
+	if (input->up && check_collision(map, player, DIR_UP, 0)) { 
 		player->y -= 1; player->move_cooldown = MOVE_DELAY; player->direction = DIR_UP; 
 
 	}
-	if (input->down && check_collision(map, player, DIR_DOWN)) {
+	if (input->down && check_collision(map, player, DIR_DOWN, 0)) {
 		player->y += 1; player->move_cooldown = MOVE_DELAY;  player->direction = DIR_DOWN; 
 
 	}
-	if (input->right && check_collision(map, player, DIR_RIGHT)) { 
+	if (input->right && check_collision(map, player, DIR_RIGHT, 0)) { 
 		player->x += 1; player->move_cooldown = MOVE_DELAY;  player->direction = DIR_RIGHT; 
 
 	}
-	if (input->left && check_collision(map, player, DIR_LEFT)) {
+	if (input->left && check_collision(map, player, DIR_LEFT, 0)) {
 		player->x -= 1; player->move_cooldown = MOVE_DELAY;  player->direction = DIR_LEFT; 
 
 	}

@@ -4,11 +4,12 @@
 # include "minihell_types.h"
 
 // collision.c
-witch check_collision(t_map *map, t_player *player, int direction);
+witch check_collision(t_map *map, t_player *player, u32 direction, u32 offset);
 
 // draw.c
 void draw_map(t_map *map);
 void draw_player(t_player *player);
+void draw_player_attack(t_player *player, t_map *map);
 
 // init.c
 void init_map(t_map *map, t_id map_id);
@@ -24,7 +25,8 @@ void convert_render_to_collision(t_map *map);
 // update.c
 void update_input(t_input *input);
 void update_player(t_player *player, t_input *input, t_map *map);
-void update_camera (Camera2D *camera, t_player *player);
+void update_camera(Camera2D *camera, t_player *player);
+
 
 // utils.c
 void print_list_2d(char **list);

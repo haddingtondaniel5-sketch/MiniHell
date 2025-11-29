@@ -30,6 +30,7 @@ typedef struct s_player {
 	Texture2D texture_player_down;
 	Texture2D texture_player_right;
 	Texture2D texture_player_left;
+	Texture2D texture_player_attack;
 } t_player;
 
 typedef struct s_map {

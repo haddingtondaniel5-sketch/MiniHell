@@ -4,7 +4,7 @@
 
 int main(void)
 {
-    InitWindow(WINDOW_X, WINDOW_Y, "MiniHell - An RPG");
+    InitWindow(WINDOW_X, WINDOW_Y, "MiniHell - An RPG (cough)");
     SetTargetFPS(60);
 	t_app *app = malloc(sizeof(t_app));
 	init_app(app);
@@ -23,6 +23,7 @@ int main(void)
 		BeginMode2D(app->camera);
 		draw_map(&app->map[app->current_map]);
 		draw_player(&app->player);
+		draw_player_attack(&app->player, &app->map[app->current_map]);
 		EndMode2D();
         EndDrawing();
     }

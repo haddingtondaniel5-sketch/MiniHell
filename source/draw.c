@@ -1,17 +1,43 @@
 #include "../includes/minihell.h"
 
 
-
 void draw_player(t_player *player)
 {
 	if (player->direction == DIR_UP)
-		DrawTexture(player->texture_player_up, player->x * TILE_SIZE, player->y * TILE_SIZE, WHITE);
+		DrawTexture(player->texture_player_up, (player->x) * TILE_SIZE, (player->y) * TILE_SIZE, WHITE);
 	if (player->direction == DIR_DOWN)
-		DrawTexture(player->texture_player_down, player->x * TILE_SIZE, player->y * TILE_SIZE, WHITE);	
+		DrawTexture(player->texture_player_down, (player->x) * TILE_SIZE, (player->y) * TILE_SIZE, WHITE);	
 	if (player->direction == DIR_RIGHT)
-		DrawTexture(player->texture_player_right, player->x * TILE_SIZE, player->y * TILE_SIZE, WHITE);	
+		DrawTexture(player->texture_player_right, (player->x) * TILE_SIZE, (player->y) * TILE_SIZE, WHITE);	
 	if (player->direction == DIR_LEFT)
-		DrawTexture(player->texture_player_left, player->x * TILE_SIZE, player->y * TILE_SIZE, WHITE);
+		DrawTexture(player->texture_player_left, (player->x) * TILE_SIZE, (player->y) * TILE_SIZE, WHITE);
+}
+
+void draw_player_attack(t_player *player, t_map *map)
+{
+	(void)map;
+	if (IsKeyPressed(KEY_SPACE))
+	{
+		u32 i = 0;
+		while (i < 7)
+		{
+			if (player->direction == DIR_UP)
+				DrawTexture(player->texture_player_attack, (player->x) * TILE_SIZE, (player->y - i) * TILE_SIZE, WHITE);
+			if (player->direction == DIR_DOWN)
+				DrawTexture(player->texture_player_attack, (player->x) * TILE_SIZE, (player->y + i) * TILE_SIZE, WHITE);	
+			if (player->direction == DIR_RIGHT)
+				DrawTexture(player->texture_player_attack, (player->x + i) * TILE_SIZE, (player->y) * TILE_SIZE, WHITE);	
+			if (player->direction == DIR_LEFT)
+				DrawTexture(player->texture_player_attack, (player->x - i) * TILE_SIZE, (player->y) * TILE_SIZE, WHITE);
+			if (check_collision(map, player, player->direction, i))
+				i += 1;
+			else
+				break ;
+		}
+
+	}
+
+
 }
 
 void draw_map(t_map *map)
